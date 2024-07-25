@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'placas_transito',
+    'site_setup',
     'django_summernote',
 ]
 
