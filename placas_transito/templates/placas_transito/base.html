@@ -5,13 +5,14 @@
     {% include 'placas_transito/partials/_head.html' %}
 </head>
 <body>
+    <div class "blog-wrapper">
+        {% include 'placas_transito/partials/_header.html' %}
+        {% block content %}{% endblock content %}
 
-    <h1>Link: {{ site_setup.title }}</h1>
-    {% include 'placas_transito/partials/_header.html' %}
-    {% block content %} {% endblock content %}
-    {% include 'placas_transito/partials/_pagination.html' %}
-    {% include 'placas_transito/partials/_footer.html' %}
+        {% include 'placas_transito/partials/_pagination.html' %}
 
+        {% include 'placas_transito/partials/_footer.html' %}
+    </div>
 
 </body>
 
