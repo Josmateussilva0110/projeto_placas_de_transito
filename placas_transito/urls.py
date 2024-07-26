@@ -1,10 +1,10 @@
 from django.urls import path
-from placas_transito import views
+from placas_transito.views import *
 
 app_name = 'placas_transito'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', index, name='index'),
+    path('page/', page, name='page'),
+    path('post/', post, name='post'),
 ]
-
-
