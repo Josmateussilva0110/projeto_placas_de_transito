@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-
-<html lang="pt-br">
-<head>
-    {% include 'placas_transito/partials/_head.html' %}
 </head>
 <body>
     <div class "blog-wrapper">
-        {% include 'placas_transito/partials/_header.html' %}
+        {% if site_setup.show_header %}
+            {% include 'placas_transito/partials/_header.html' %}
+        {% endif %}
+
         {% block content %}{% endblock content %}
 
-        {% include 'placas_transito/partials/_pagination.html' %}
+        {% if site_setup.show_pagination %}
+            {% include 'placas_transito/partials/_pagination.html' %}
+        {% endif %}
 
-        {% include 'placas_transito/partials/_footer.html' %}
+        {% if site_setup.show_footer %}
+            {% include 'placas_transito/partials/_footer.html' %}
+        {% endif %}
+
     </div>
 
 </body>
-
-</html>
