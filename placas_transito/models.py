@@ -82,7 +82,7 @@ class Post(models.Model):
 
     cover_in_post_content = models.BooleanField(default=True, help_text='Se marcado, exibirá a capa dentro do post.')
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, black=True, null=True, related_name='post_created_by')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='post_created_by')
     updated_at = models.DateTimeField(auto_now=True)
     updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='post_updated_by')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, default=None)
@@ -93,4 +93,12 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = new_slugify(self.title)
-        return super().save(*args, **kwargs)
+        current_favicon_name = str(self.cover.name)
+        super_save = super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
+        favicon_changed = False
+        if self.cover:
+            favicon_changed = current_favicon_name != self.cover.name
+        if favicon_changed:
+            resize_image(self.cover, 900)
+        return super_save
