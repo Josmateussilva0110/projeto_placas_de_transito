@@ -11,7 +11,7 @@ class Menu_Link(models.Model):
     text = models.CharField(max_length=70)
     url_or_path = models.CharField(max_length=2048)
     new_page = models.BooleanField(default=False)
-    site_setup = models.ForeignKey('SiteSetup', on_delete=models.CASCADE, blank=True, null=True, default=None,)
+    site_setup = models.ForeignKey('SiteSetup', on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='menu')
 
 
     def __str__(self):
