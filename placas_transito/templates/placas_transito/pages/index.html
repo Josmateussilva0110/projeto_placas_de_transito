@@ -3,14 +3,21 @@
 {% block content %}
     <main class="main-content section-wrapper">
         <div class="section-content-wide">
-        <div class="section-gap">
-            <div class="card-grid">
-            {% for post in page_obj %}
-                {% include 'placas_transito/partials/_post-card.html' with i=forloop.counter0 %}
-            {% endfor %}
+            <div class="section-gap">
+                {% if page_obj %}
+                    <div class="card-grid">
+                        {% for post in page_obj %}
+                            {% include 'placas_transito/partials/_post-card.html' with i=forloop.counter0 %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="not-found center">
+                        <h1> Nada encontrado.</h1>
+                        <p> Não foi encontrado nenhum post.</p>
+                        voltar para a <a href=" {% url "placas_transito:index" %}">Home</a>
+                    </div>
+                {% endif %}
             </div>
-
-        </div>
         </div>
     </main>
 {% endblock content %}

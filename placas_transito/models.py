@@ -66,11 +66,17 @@ class Page(models.Model):
         return self.title
 
 
+class PostManager(models.Manager):
+    def get_published(self):
+        return self.filter(is_published=True).order_by('-pk')
+
 class Post(models.Model):
     class Meta:
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
     
+    objects = PostManager()
+
     title = models.CharField(max_length=70)
     slug = models.SlugField(unique=True, default="", null=False, blank=True, max_length=255)
 
@@ -90,6 +96,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     
+
+    def get_absolute_url(self):
+        if not self.is_published:
+            return reverse('placas_transito:index')
+        return reverse('placas_transito:post', args=(self.slug, ))
+    
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = new_slugify(self.title)
