@@ -1,5 +1,4 @@
 <article class="card">
-
   {% if post.cover %}
     <div class="card-cover-wrapper">
       <a href="{{ post.get_absolute_url }}" class="card-cover-link">
@@ -24,16 +23,14 @@
 
     <div class="card-content-wrapper">
       <p class="card-content">
-        {{ post.excerpt }} 
       </p>
 
       <div class="card-actions">
         <a class="card-action-link" href="{{ post.get_absolute_url }}">
-          <span>Leia</span>
+          <span>Leia Sobre</span>
           <i class="fa-solid fa-circle-arrow-right"></i>
         </a>
       </div>
     </div>
   </div>
-
 </article>

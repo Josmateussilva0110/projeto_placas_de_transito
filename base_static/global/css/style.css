@@ -408,19 +408,21 @@ html,
 /* Card Grid */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(32rem, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(29rem, 90%), 1fr));
   gap: var(--spacing-base);
 }
 
 .card {
+  display: inline-block; /* Faz com que o card se ajuste ao conteúdo */
+  width: auto; /* Permite que a largura do card se ajuste ao conteúdo */
   border: 1px solid hsl(var(--clr-gray-ltst));
   border-radius: var(--br-base);
   box-shadow: 0 5px 5px hsl(var(--clr-black) / 0.1);
-  transition: scale 300ms ease-in-out, box-shadow 300ms ease-in-out;
+  transition: scale 250ms ease-in-out, box-shadow 300ms ease-in-out;
 }
 
 .card:hover {
-  scale: 1.02;
+  scale: 1.10;
   box-shadow: 0 5px 15px hsl(var(--clr-black) / 0.3);
 }
 
@@ -428,20 +430,19 @@ html,
   padding: var(--spacing-base);
 }
 
-.card-cover-wrapper {
-  aspect-ratio: 16 / 9;
-}
+
 
 .card-cover {
+  width: 100%; /* A imagem ocupa toda a largura do card */
+  height: auto; /* A altura da imagem será ajustada automaticamente */
+  object-fit: cover; /* Mantém o preenchimento do container */
   border-radius: var(--br-base) var(--br-base) 0 0;
-  aspect-ratio: 16 / 9;
-  object-position: center;
-  object-fit: cover;
   transition: opacity 300ms ease-in-out;
 }
 
+
 .card-cover:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .card-title-link {
