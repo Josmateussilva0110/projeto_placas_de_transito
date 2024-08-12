@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from placas_transito.models import Post, Page
+from placas_transito.models import Post, Page, Category
 from django.db.models import Q
 from django.http import Http404
 
@@ -15,6 +15,7 @@ def index(request):
     page_obj = paginator.get_page(page_number)
     context['page_obj'] = page_obj
     context['page_title'] = 'Home - '
+    print(context)
     return render(request, 'placas_transito/pages/index.html', context)
 
 

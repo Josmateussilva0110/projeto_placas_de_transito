@@ -8,11 +8,15 @@
         </h1>
         
         <details class="custom-dropdown">
-          <summary class="custom-title button-link">botam</summary>
+          <summary class="custom-dropdown-summary">Categorias</summary>
           <ul class="dropdown-menu">
-            <li><a href="/option1">Opção 1</a></li>
-            <li><a href="/option2">Opção 2</a></li>
-            <li><a href="/option3">Opção 3</a></li>
+            {% for category in categories %}
+              <li> 
+                <a href=" {% url "placas_transito:category" slug=category.slug %}"> {{ category.name }}</a>
+
+              </li>
+            
+            {% endfor %}
           </ul>
         </details>
       </div>

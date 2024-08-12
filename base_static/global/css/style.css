@@ -547,3 +547,8 @@ details[open] .dropdown-menu {
 .dropdown-menu li a:hover {
   background-color: hsl(var(--clr-gray-ltst));
 }
+
+.custom-dropdown-summary {
+  color: green; /* Define a cor do texto como verde */
+}
+
