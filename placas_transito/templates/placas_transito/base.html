@@ -1,9 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     {% include 'placas_transito/partials/_head.html' %}
     {% block additional_head %} {% endblock additional_head %}
+    <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 </head>
 
 <body>
