@@ -82,13 +82,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-a {
-  color: hsl(var(--clr-primary-base));
+a{
+  color: green;
   text-decoration: none;
 }
 
 a:hover {
-  color: hsl(var(--clr-primary-dk));
+  color: green;
   text-decoration: underline;
 }
 
@@ -477,4 +477,9 @@ html,
 
 .card-action-link:hover {
   text-decoration: none;
+}
+
+
+.custom-title {
+  color: green; /* Altere para a cor que deseja */
 }
