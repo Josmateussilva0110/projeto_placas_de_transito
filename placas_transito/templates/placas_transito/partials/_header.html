@@ -1,14 +1,25 @@
 <header class="header section-wrapper">
-    <div class="section-content-wide">
-      <div class="section-gap">
+  <div class="section-content-wide">
+    <div class="section-gap">
 
-        <h1 class="blog-title left pb-base">
+      <div class="blog-title-wrapper">
+        <h1 class="blog-title">
           <a class="custom-title" href="/"> {{ site_setup.title }}</a>
-          <a class="custom-title" href="/">botam</a>
         </h1>
-        {% if site_setup.show_description %}
-          <p class="blog-description pb-base center">{{ site_setup.description }}</p>
-        {% endif %}
+        
+        <details class="custom-dropdown">
+          <summary class="custom-title button-link">botam</summary>
+          <ul class="dropdown-menu">
+            <li><a href="/option1">Opção 1</a></li>
+            <li><a href="/option2">Opção 2</a></li>
+            <li><a href="/option3">Opção 3</a></li>
+          </ul>
+        </details>
+      </div>
+
+      {% if site_setup.show_description %}
+        <p class="blog-description pb-base center">{{ site_setup.description }}</p>
+      {% endif %}
 
         
       {% if site_setup.show_search %}

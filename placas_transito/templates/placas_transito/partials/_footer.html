@@ -1,12 +1,11 @@
-<footer class="footer section-wrapper mt-base">
-    <div class="section-content-wide">
-      <div class="section-gap">
-        <div class="center">
-          <a href="#"> © {% now "Y" %} {{site_setup.title }}- Todos os direitos reservados. </a>
-        </div>
-      </div>
+<footer class="footer mt-base">
+  <div class="section-gap">
+    <div class="center">
+      <a href=" {% url "placas_transito:index" %}">© {% now "Y" %} {{site_setup.title }} - Todos os direitos reservados.</a>
     </div>
+  </div>
 </footer>
+
 
 <script>
   (function () {
