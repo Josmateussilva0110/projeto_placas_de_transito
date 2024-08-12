@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from placas_transito.models import Post
+from placas_transito.models import Post, Page
 from django.db.models import Q
 
 PER_PAGE = 9
@@ -35,9 +35,12 @@ def search(request):
     context['search_value'] = search_value
     return render(request, 'placas_transito/pages/index.html', context)
 
+
 def page(request, slug):
     context = dict()
-    return render(request, 'placas_transito/pages/page.html')
+    page = Page.objects.filter(is_published=True).filter(slug=slug).first()
+    context['page'] = page
+    return render(request, 'placas_transito/pages/page.html', context)
 
 
 def post(request, slug):
