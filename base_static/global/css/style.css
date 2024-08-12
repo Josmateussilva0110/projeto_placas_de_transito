@@ -548,7 +548,39 @@ details[open] .dropdown-menu {
   background-color: hsl(var(--clr-gray-ltst));
 }
 
+
+
+
 .custom-dropdown-summary {
-  color: green; /* Define a cor do texto como verde */
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: green;
+  color: hsl(var(--clr-white));
+  border-radius: var(--br-base);
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  box-shadow: 0 4px 6px hsl(var(--clr-black) / 0.1);
 }
 
+.custom-dropdown-summary:hover {
+  background-color: darkgreen;
+  box-shadow: 0 6px 10px hsl(var(--clr-black) / 0.2);
+}
+
+.custom-dropdown-summary::after {
+  content: '\25BC'; 
+  margin-left: 0.5rem;
+  transition: transform 200ms ease-in-out;
+  display: inline-block; 
+}
+
+details[open] .custom-dropdown-summary::after {
+  transform: rotate(180deg); 
+}
+
+.custom-dropdown-summary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px green / 0.5;
+}
