@@ -113,5 +113,5 @@ class Post(models.Model):
         if self.cover:
             favicon_changed = current_favicon_name != self.cover.name
         if favicon_changed:
-            resize_image(self.cover, 900)
+            resize_image(self.cover, 360)
         return super_save
